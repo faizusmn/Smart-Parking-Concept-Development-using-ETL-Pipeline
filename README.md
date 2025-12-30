@@ -92,16 +92,16 @@ uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
 Dokumentasi API bisa dilihat di: http://localhost:8000/docs
 
 ## Teknologi yang Digunakan
-Language: Python
+- Language: Python
+- Data Processing: Pandas
+- Database: PostgreSQL
+- Infrastructure: Docker
+- Web Framework: Streamlit
+- API Framework: FastAPI
+- ORM: SQLAlchemy
 
-Data Processing: Pandas
+## 8. Lisensi
 
-Database: PostgreSQL
+Proyek dibuat untuk kepentingan akademik dan pengembangan pada mata kuliah Pemrosesan dan Infrastruktur Data.
 
-Infrastructure: Docker
-
-Web Framework: Streamlit
-
-API Framework: FastAPI
-
-ORM: SQLAlchemy
+---
