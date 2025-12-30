@@ -1,5 +1,3 @@
-# Project-Automation-Parking-ETL
-
 # Sistem Parkir Pintar Berbasis IoT (Smart Parking System)
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
