@@ -13,26 +13,26 @@
 Sistem ini adalah simulasi *End-to-End Data Engineering* untuk memantau kondisi parkiran secara *real-time*. Menggunakan pendekatan **ETL (Extract, Transform, Load)** untuk memproses data sensor simulasi, menyimpannya ke Data Warehouse (PostgreSQL), dan memvisualisasikannya melalui Dashboard interaktif.
 
 ## Fitur Utama
-1.  [cite_start]**Real-Time Monitoring:** Memantau status 20 slot parkir (Kosong, Terisi, Anomali)[cite: 77].
+1.  **Real-Time Monitoring:** Memantau status 20 slot parkir (Kosong, Terisi, Anomali).
 2.  **Live Stopwatch Duration:** Menghitung durasi parkir kendaraan detik-demi-detik secara *real-time* (1s, 2s, 3s...).
-3.  [cite_start]**Anomaly Detection:** Otomatis mendeteksi kesalahan sensor jika jarak < 15 cm[cite: 154].
-4.  [cite_start]**Activity Logging:** Mencatat riwayat keluar-masuk kendaraan dan error sensor ke database[cite: 233].
+3.  **Anomaly Detection:** Otomatis mendeteksi kesalahan sensor jika jarak < 15 cm.
+4.  **Activity Logging:** Mencatat riwayat keluar-masuk kendaraan dan error sensor ke database.
 5.  **REST API Support:** Menyediakan endpoint JSON untuk integrasi dengan aplikasi mobile.
 
 ---
 
 ## Arsitektur Sistem (ETL Pipeline)
-[cite_start]Sistem ini tidak menggunakan pendekatan ELT, melainkan **ETL** untuk menangani logika simulasi yang kompleks[cite: 112].
+Sistem ini tidak menggunakan pendekatan ELT, melainkan **ETL** untuk menangani logika simulasi yang kompleks[cite: 112].
 
-1.  [cite_start]**Extract (Simulasi Sensor):** Script Python (`simulator.py`) membangkitkan data jarak (*distance*) secara acak untuk 20 slot[cite: 114].
+1.  **Extract (Simulasi Sensor):** Script Python (`simulator.py`) membangkitkan data jarak (*distance*) secara acak untuk 20 slot[cite: 114].
 2.  **Transform (Python Pandas):** * Validasi data sensor.
     * Penentuan status: 
         * `< 15 cm` : **ANOMALI** (Error)
         * `15 - 25 cm` : **TERISI** (Mobil)
         * `> 25 cm` : **KOSONG**
     * Perhitungan durasi parkir berbasis waktu nyata.
-3.  [cite_start]**Load (PostgreSQL):** Data bersih disimpan ke database `parking_db` dalam container Docker[cite: 114].
-4.  [cite_start]**Visualization:** Streamlit membaca data dari database dan menampilkannya[cite: 135].
+3.  **Load (PostgreSQL):** Data bersih disimpan ke database `parking_db` dalam container Docker[cite: 114].
+4.  **Visualization:** Streamlit membaca data dari database dan menampilkannya[cite: 135].
 
 ## Struktur Folder
 ```text
@@ -93,11 +93,15 @@ Dokumentasi API bisa dilihat di: http://localhost:8000/docs
 
 ## Teknologi yang Digunakan
 Language: Python
+
 Data Processing: Pandas
+
 Database: PostgreSQL
+
 Infrastructure: Docker
 
 Web Framework: Streamlit
 
 API Framework: FastAPI
+
 ORM: SQLAlchemy
